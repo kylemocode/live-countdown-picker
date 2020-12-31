@@ -35,5 +35,5 @@ export const { setLoading, setErrors, setCandidates } = candidateSlice.actions
 
 export default candidateSlice.reducer
 
-export const photosSelector = (state: { candidatesStore: CandidateState }) =>
-  state.candidatesStore
+export const candidatesSelector = (state: { candidates: CandidateState }) =>
+  state.candidates
