@@ -1,16 +1,12 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-// import { AppThunk } from "./../../index"
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface CandidateState {
-  candidates: object[];
-  loading: boolean;
-  errors: string;
-}
+import { CandidateState, Candidate } from './types';
 
 const initialState: CandidateState = {
   candidates: [],
   loading: false,
   errors: '',
+  winner: undefined,
 }
 
 const candidateSlice = createSlice({
@@ -25,15 +21,15 @@ const candidateSlice = createSlice({
       state.errors = payload
     },
 
-    setCandidates: (state, { payload }: PayloadAction<object[]>) => {
+    setCandidates: (state, { payload }: PayloadAction<Candidate[]>) => {
       state.candidates = payload
     },
   },
 })
 
-export const { setLoading, setErrors, setCandidates } = candidateSlice.actions
+export const { setLoading, setErrors, setCandidates } = candidateSlice.actions;
 
-export default candidateSlice.reducer
+export default candidateSlice.reducer;
 
 export const candidatesSelector = (state: { candidates: CandidateState }) =>
-  state.candidates
+  state.candidates;

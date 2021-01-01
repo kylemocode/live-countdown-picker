@@ -1,11 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-// import { AppThunk } from "./../../index"
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface TimerState {
-  timer: number;
-  running: boolean;
-  IsSetup: boolean;
-}
+import { TimerState } from './types';
 
 const initialState: TimerState = {
   timer: 0,
@@ -29,11 +24,12 @@ const timerSlice = createSlice({
       state.timer = payload
     },
   },
-})
+});
 
-export const { setRunning, setIsSetUp, setTimer } = timerSlice.actions
+export const { setRunning, setIsSetUp, setTimer } = timerSlice.actions;
 
-export default timerSlice.reducer
+export default timerSlice.reducer;
 
 export const timerSelector = (state: { timer: TimerState }) =>
-  state.timer
+  state.timer;
+  
