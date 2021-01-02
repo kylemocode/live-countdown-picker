@@ -1,24 +1,31 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import { S } from './style';
+import { removeCandidate } from '../../../../../redux/features/candidate/CandidateSlice';
 
 interface IProps {
   forwardedStyle: React.CSSProperties;
   name: string;
-  key: string;
+  uniqueKey: string;
 }
 
-export default function CandidateItem({ forwardedStyle, name, key }: IProps) {
+export default function CandidateItem({ forwardedStyle, name, uniqueKey }: IProps) {
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(removeCandidate(uniqueKey));
+  }
 
   return (
     <S.ListItemContainer style={forwardedStyle}>
       <S.StyledImage
-        src='https://i.imgur.com/LFZhvOx.jpg'
+        src='/person.jpg'
         alt='person'
       />
       <S.ListItemName>
         {name}
-        <S.DeleteBtn>X</S.DeleteBtn>
+        <S.DeleteBtn onClick={handleDelete}>X</S.DeleteBtn>
       </S.ListItemName>
     </S.ListItemContainer>
   )

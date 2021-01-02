@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { FixedSizeList as List } from "react-window";
 
 import { S } from './style';
@@ -14,11 +14,13 @@ export default function CandidatesList() {
   useEffect(() => {
     setInnerHeight(window.innerHeight);
   }, []);
-  console.log(candidates);
-  console.log(innerHeight);
+
 	return (
 		<S.ListContainer>
-      <S.Title>抽獎名單</S.Title>
+      <S.Title>
+        抽獎名單
+        {candidates.length ? <S.CountSpan>(目前參加人數： {candidates.length} 人)</S.CountSpan> : null}
+      </S.Title>
       <CandidateInput></CandidateInput>
       {candidates.length ? (
         <List
@@ -28,8 +30,13 @@ export default function CandidatesList() {
           itemCount={candidates.length}
           itemSize={100}
           itemData={candidates} >
-          {({ style }) => {
-            return <CandidateItem name='' key='' forwardedStyle={style} />
+          {({ index, style }) => {
+            return (
+              <CandidateItem
+                name={candidates[index].name} 
+                uniqueKey={candidates[index].key} 
+                forwardedStyle={style} />
+            )
           }}
         </List>
       ) : (

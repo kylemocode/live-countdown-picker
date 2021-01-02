@@ -4,11 +4,11 @@ export const S = {
   ListItemContainer: styled.div`
     height: 80px;
     display: flex;
-    border-radius: 12px;
   `,
   StyledImage: styled.img`
     width: 80px;
     height: 80px;
+    border-radius: 12px 0 0 12px;
   `,
   ListItemName: styled.div`
     position: relative;
@@ -19,6 +19,7 @@ export const S = {
     justify-content: center;
     align-items: center;
     font-size: 24px;
+    border-radius: 0 12px 12px 0;
   `,
   DeleteBtn: styled.div`
     position: absolute;

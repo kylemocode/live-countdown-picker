@@ -13,21 +13,16 @@ const candidateSlice = createSlice({
   name: 'candidate',
   initialState,
   reducers: {
-    setLoading: (state, { payload }: PayloadAction<boolean>) => {
-      state.loading = payload
+    addCandidate: (state, { payload }: PayloadAction<Candidate>) => {
+      state.candidates.push(payload)
     },
-
-    setErrors: (state, { payload }: PayloadAction<string>) => {
-      state.errors = payload
-    },
-
-    setCandidates: (state, { payload }: PayloadAction<Candidate[]>) => {
-      state.candidates = payload
-    },
+    removeCandidate: (state, { payload }: PayloadAction<string>) => {
+      state.candidates = state.candidates.filter(item => item.key !== payload);
+    }
   },
 })
 
-export const { setLoading, setErrors, setCandidates } = candidateSlice.actions;
+export const { addCandidate, removeCandidate } = candidateSlice.actions;
 
 export default candidateSlice.reducer;
 

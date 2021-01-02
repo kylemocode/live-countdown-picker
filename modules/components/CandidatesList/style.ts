@@ -23,5 +23,10 @@ export const S = {
   Warning: styled.p`
     color: white;
     font-size: 18px;
+  `,
+  CountSpan: styled.span`
+    color: white;
+    font-size: 14px;
+    margin-left: 5px;
   `
 }
