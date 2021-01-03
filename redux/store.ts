@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 
 import candidatesReducer from './features/candidate/CandidateSlice';
 import timerReducer from './features/timer/TimerSlice';
@@ -8,7 +8,7 @@ const store = configureStore({
     candidates: candidatesReducer,
     timer: timerReducer,
   },
-  middleware: [],
+  middleware: [...getDefaultMiddleware()],
   devTools: process.env.NODE_ENV !== 'development' ? false : true,
 });
 

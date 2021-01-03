@@ -25,10 +25,10 @@ export default function CandidatesList() {
       {candidates.length ? (
         <List
           className='List'
-          height={innerHeight}
+          height={innerHeight - 120}
           width={500}
           itemCount={candidates.length}
-          itemSize={100}
+          itemSize={80}
           itemData={candidates} >
           {({ index, style }) => {
             return (

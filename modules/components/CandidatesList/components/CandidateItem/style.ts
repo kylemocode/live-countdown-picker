@@ -2,19 +2,19 @@ import styled from 'styled-components';
 
 export const S = {
   ListItemContainer: styled.div`
-    height: 80px;
+    height: 60px;
     display: flex;
   `,
   StyledImage: styled.img`
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 12px 0 0 12px;
   `,
   ListItemName: styled.div`
     position: relative;
     background: white;
     width: 80%;
-    height: 80px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;

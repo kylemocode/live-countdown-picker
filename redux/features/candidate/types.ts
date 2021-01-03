@@ -6,6 +6,5 @@ export type Candidate = {
 export interface CandidateState {
   candidates: Candidate[];
   loading: boolean;
-  errors: string;
   winner?: Candidate;
 }

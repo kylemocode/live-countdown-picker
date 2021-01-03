@@ -1,6 +1,8 @@
 import Head from 'next/head'
 
 import CandidatesList from '../modules/components/CandidatesList';
+import Timer from '../modules/components/Timer';
+import PickedResult from '../modules/components/PickedResult';
 
 export default function Home() {
   return (
@@ -10,6 +12,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link rel='preload' href={'/person.jpg'} as='image' />
       </Head>
+      <Timer />
+      <PickedResult />
       <CandidatesList />
     </div>
   )

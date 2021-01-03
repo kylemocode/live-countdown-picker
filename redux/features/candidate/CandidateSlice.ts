@@ -5,7 +5,6 @@ import { CandidateState, Candidate } from './types';
 const initialState: CandidateState = {
   candidates: [],
   loading: false,
-  errors: '',
   winner: undefined,
 }
 
@@ -18,11 +17,23 @@ const candidateSlice = createSlice({
     },
     removeCandidate: (state, { payload }: PayloadAction<string>) => {
       state.candidates = state.candidates.filter(item => item.key !== payload);
+    },
+    pickWinner: (state) => {
+      if (state.winner) return;
+      if (state.candidates.length === 0) return;
+      state.winner = state.candidates[Math.floor(Math.random() * state.candidates.length)];
+      state.candidates = [];
+    },
+    cleanWinner: (state) => {
+      state.winner = undefined;
+    },
+    cleanCandidates: (state) => {
+      state.candidates = [];
     }
   },
 })
 
-export const { addCandidate, removeCandidate } = candidateSlice.actions;
+export const { addCandidate, removeCandidate, pickWinner, cleanWinner, cleanCandidates } = candidateSlice.actions;
 
 export default candidateSlice.reducer;
 
