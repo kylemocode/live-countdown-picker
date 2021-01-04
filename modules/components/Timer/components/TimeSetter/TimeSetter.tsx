@@ -22,18 +22,17 @@ export default function TimeSetter() {
     dispatch(clearTimer());
   }, []);
 
-  const handleStartTimer = () => {
+  const handleStartTimer = useCallback(() => {
     if (!isSetup) return alert('請先設定倒數時間');
     if (candidates.length < 2) return alert('沒有 2 個以上抽獎者不能開始倒數啦!')
     if (running) return alert('正在倒數啦，請耐心等待');
     dispatch(runTimer());
-  };
+  }, [isSetup, candidates, running]);
 
-  const handleInstantPick = () => {
-    // if (!running) return alert('需要開始倒數才能使用此功能啦!');
+  const handleInstantPick = useCallback(() => {
     dispatch(pickWinner());
     dispatch(clearTimer());
-  }
+  }, []);
 
   return (
     <S.Container>
@@ -46,10 +45,12 @@ export default function TimeSetter() {
             onChange={e => setTimerValue(parseInt(e.target.value))}/>
           <S.Minute>分鐘</S.Minute>
         </div>
-        <S.SetBtn onClick={handleSetTimer}>設定</S.SetBtn>
-        <S.ResetBtn onClick={handleResetTimer}>重設</S.ResetBtn>
-        <S.StartBtn onClick={handleStartTimer}>開始</S.StartBtn>
-        <S.InstantBtn onClick={handleInstantPick}>立刻抽獎</S.InstantBtn>
+        <S.BtnWrapper>
+          <S.SetBtn onClick={handleSetTimer}>設定</S.SetBtn>
+          <S.ResetBtn onClick={handleResetTimer}>重設</S.ResetBtn>
+          <S.StartBtn onClick={handleStartTimer}>開始</S.StartBtn>
+          <S.InstantBtn onClick={handleInstantPick}>立刻抽獎</S.InstantBtn>
+        </S.BtnWrapper>
       </S.SetterWrapper>
       <S.CountdownWrapper>
         <Countdown />

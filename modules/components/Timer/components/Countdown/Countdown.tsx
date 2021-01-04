@@ -33,10 +33,12 @@ export default function Countdown() {
     timeoutRef.current = setInterval(() => {
       dispatch(reduceOneSecond());
     }, 1000);
+
+    return () => clearInterval(timeoutRef.current);
   }, [running]);
 
   return (
-    <S.NumberText>
+    <S.NumberText turnRed={isSetup && timeleft.minutes === '00' && parseInt(timeleft.seconds) <= 10}>
       {!isSetup && '00:00'}
       {isSetup && `${timeleft.minutes}:${timeleft.seconds}`}
     </S.NumberText>

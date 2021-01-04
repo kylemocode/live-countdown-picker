@@ -27,3 +27,9 @@ export const ButtonStyle = css`
   cursor: pointer;
   margin-left: 16px;
 `;
+
+export const CenterStyle = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`

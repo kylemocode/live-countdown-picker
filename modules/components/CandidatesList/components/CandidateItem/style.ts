@@ -9,6 +9,10 @@ export const S = {
     &:hover {
       transform: scale(1.01);
     }
+
+    ${props => props.theme.tablet`
+      width: 100%;
+    `}
   `,
   StyledImage: styled.img`
     width: 60px;
@@ -17,12 +21,16 @@ export const S = {
   ListItemName: styled.div`
     position: relative;
     background: white;
-    width: 80%;
     height: 60px;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
+
+    ${props => props.theme.tablet`
+      width: calc(100vw - 100px);
+    `}
   `,
   DeleteBtn: styled.div`
     position: absolute;

@@ -10,9 +10,11 @@ export const S = {
     height: 100vh;
     padding: 0 12px;
 
-    ${props => props.theme.mobileL`
+    ${props => props.theme.tablet`
+      position: relative;
       width: 100%;
-      height: 300px;
+      height: 110vh;
+      padding: 20px 20px 0 20px;
     `}
   `,
   Title: styled.h3`

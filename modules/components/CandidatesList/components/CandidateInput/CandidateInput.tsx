@@ -18,13 +18,20 @@ export default function CandidateInput() {
     setCandidateName('');
   };
 
+  const handleEnter = (e) => {
+    if (e.key === 'Enter') {
+      handleInsert();
+    }
+  }
+
   return (
     <S.Wrapper>
       <S.InsertInput
         placeholder='請輸入抽獎人名稱'
         type='text' 
         value={candidateName} 
-        onChange={(e) => setCandidateName(e.target.value)}/>
+        onChange={(e) => setCandidateName(e.target.value)}
+        onKeyPress={handleEnter}/>
       <S.InsertBtn onClick={handleInsert}>新增</S.InsertBtn>
     </S.Wrapper>
   )
