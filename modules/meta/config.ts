@@ -1,10 +1,7 @@
 import * as T from './types';
 import { NextRouter } from 'next/router';
-import getConfig from 'next/config';
 
-const config = getConfig();
-const safeConfig = config?.publicRuntimeConfig ?? {};
-export const origin = `https://${safeConfig.domain}`;
+export const origin = `https://live-countdown-picker.vercel.app`;
 
 export const siteMetaGenerator = (_ctx: unknown, router: NextRouter): T.IMeta => ({
   title: 'Live Countdown Picker',

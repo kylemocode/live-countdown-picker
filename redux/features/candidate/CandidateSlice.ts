@@ -20,7 +20,7 @@ const candidateSlice = createSlice({
     },
     pickWinner: (state) => {
       if (state.winner) return;
-      if (state.candidates.length === 0) return;
+      if (state.candidates.length === 0) return alert('沒有抽獎者要怎麼抽獎啦！');
       state.winner = state.candidates[Math.floor(Math.random() * state.candidates.length)];
       state.candidates = [];
     },

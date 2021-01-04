@@ -30,7 +30,7 @@ export default function TimeSetter() {
   };
 
   const handleInstantPick = () => {
-    if (!running) return alert('需要開始倒數才能使用此功能啦!');
+    // if (!running) return alert('需要開始倒數才能使用此功能啦!');
     dispatch(pickWinner());
     dispatch(clearTimer());
   }
