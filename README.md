@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Live Countdown Picker
+A simple lottery webapp built with Next.js, TypeScript, Redux Toolkit and Styled-Components.
 
-## Getting Started
+![image](./assets/live-countdown-picker.gif)
 
-First, run the development server:
+## Preview
+[Live Countdown Picker](https://live-countdown-picker.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
+## Installation
+
+```shell
+$ git clone https://github.com/kylemocode/live-countdown-picker.git
+$ cd live-countdown-picker
+$ npm install && npm run dev (or using yarn instead)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+#### High Performance And Good SEO
+![](https://i.imgur.com/1KDEM9b.png)
+In addition to some performance optimizations unique to react such as useMemo, useCallback...etc, this project also implement virtualized list in CandidatesList component, preventing performance bottleneck while the candidates list is huge.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Provide basic meta tag to get a good SEO point in lighthouse.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### Maintainable And Scalable Code Base
+Although this is a small project, I still presuppose that it will need to scale in the future, so I manage the code base as maintainable and scalable as I can. For example, I utilize theme provider in styled-components (now only support media query, maybe it can support font color and some design guideline in the future)
 
-## Learn More
+#### Use RTK To Avoid Complex Redux Boilerplate
+This project use [Redux-Toolkit](https://github.com/reduxjs/redux-toolkit) to structure redux data architecture, making the code base more readable and maintainable.
 
-To learn more about Next.js, take a look at the following resources:
+#### Responsive Web Design (RWD)
+Currently, the project only support Desktop version and Tablet version (768px as break point), but I will easily expand the styles of different device sizes in the future.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Polyfill-less Bundling Script
+Inspired by [this post](https://instagram-engineering.com/making-instagram-com-faster-code-size-and-execution-optimizations-part-4-57668be796a8), this project uses ES2017 as Typescript transpile target, since nearly 56% of user's browser supports ES2017+ syntax. As a result, this shrinks source-mapped bundle size, and gained runtime performance.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Roadmap (Todo List)
+  - [ ] Turn this project to Full-Stack project using Next.js API routes, which will turn your API endpoint to serverless lambda function
+  - [ ] Batch insert candidates
+  - [ ] Candidates can upload his/her own avatar
+  - [ ] More styles for different device sizes (Now only use 768px as the break point)
+  - [ ] Flexible timer (Currently support minute only)
+  - [ ] Persistence feature such as redux-persist or DB storage.
+  - [ ] Increase Unit Test Coverage
+  - [ ] CICD Pipeline
