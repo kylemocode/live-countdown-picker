@@ -1,11 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo, ReactElement } from 'react';
 import { useSelector } from 'react-redux';
-import { FixedSizeList as List } from "react-window";
+import { FixedSizeList as List, areEqual, ListChildComponentProps } from "react-window";
 
 import { S } from './style';
 import { candidatesSelector } from '../../../redux/features/candidate/CandidateSlice';
+import { Candidate } from '../../../redux/features/candidate/types';
 import CandidateItem from './components/CandidateItem';
 import CandidateInput from './components/CandidateInput';
+
+interface IRowProps<T> {
+  data: T[];
+  index: number;
+  style: React.CSSProperties;
+}
+
+// Ref: https://github.com/bvaughn/react-window/issues/186#issuecomment-476296940
+const Row = memo(({ 
+  data, 
+  index, 
+  style 
+}: IRowProps<Candidate>): ReactElement<ListChildComponentProps> => {
+  // Data passed to List as 'itemData' is available as props.data 
+  return (
+    <CandidateItem
+      key={data[index].key}
+      name={data[index].name} 
+      uniqueKey={data[index].key} 
+      forwardedStyle={style} />
+  );
+}, areEqual);
 
 export default function CandidatesList() {
   const [innerHeight, setInnerHeight] = useState(700);
@@ -23,6 +46,7 @@ export default function CandidatesList() {
       </S.Title>
       <CandidateInput></CandidateInput>
       {candidates.length ? (
+        // @ts-ignore
         <List
           className='List'
           height={innerHeight - 120}
@@ -30,15 +54,7 @@ export default function CandidatesList() {
           itemCount={candidates.length}
           itemSize={80}
           itemData={candidates} >
-          {({ index, style }) => {
-            return (
-              <CandidateItem
-                key={candidates[index].key}
-                name={candidates[index].name} 
-                uniqueKey={candidates[index].key} 
-                forwardedStyle={style} />
-            )
-          }}
+          {Row}
         </List>
       ) : (
         <S.Warning>目前還沒有任何人參加抽獎喔！</S.Warning>

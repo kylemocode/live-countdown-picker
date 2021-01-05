@@ -36,6 +36,7 @@ Inspired by [this post](https://instagram-engineering.com/making-instagram-com-f
 
 ## Roadmap (Todo List)
   - [ ] Turn this project to Full-Stack project using Next.js API routes, which will turn your API endpoint to serverless lambda function
+  - [ ] Build custom server to set cache header on static assets 
   - [ ] Batch insert candidates
   - [ ] Candidates can upload his/her own avatar
   - [ ] More styles for different device sizes (Now only use 768px as the break point)
