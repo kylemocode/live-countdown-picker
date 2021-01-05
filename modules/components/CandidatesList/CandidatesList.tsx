@@ -33,6 +33,7 @@ export default function CandidatesList() {
           {({ index, style }) => {
             return (
               <CandidateItem
+                key={candidates[index].key}
                 name={candidates[index].name} 
                 uniqueKey={candidates[index].key} 
                 forwardedStyle={style} />

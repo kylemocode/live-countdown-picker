@@ -26,7 +26,7 @@ export default function Countdown() {
     }
 
     setTimeleft(calculateTimeLeft(timer));
-  }, [isSetup, timer]);
+  }, [timer]);
 
   useEffect(() => {
     if (!running) return;

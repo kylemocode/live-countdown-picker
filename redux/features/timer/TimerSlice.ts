@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
 
 import { TimerState } from './types';
 
@@ -34,5 +34,10 @@ export const { setTimer, runTimer, clearTimer, reduceOneSecond } = timerSlice.ac
 
 export default timerSlice.reducer;
 
-export const timerSelector = (state: { timer: TimerState }) =>
+const timerSelectorOrigin = (state: { timer: TimerState }) =>
   state.timer;
+
+export const timerSelector = createSelector(
+  timerSelectorOrigin,
+  timer => timer
+)

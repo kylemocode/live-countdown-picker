@@ -10,7 +10,7 @@ interface IProps {
   uniqueKey: string;
 }
 
-export default function CandidateItem({ forwardedStyle, name, uniqueKey }: IProps) {
+function CandidateItem({ forwardedStyle, name, uniqueKey }: IProps) {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
@@ -30,3 +30,5 @@ export default function CandidateItem({ forwardedStyle, name, uniqueKey }: IProp
     </S.ListItemContainer>
   )
 }
+
+export default React.memo(CandidateItem);

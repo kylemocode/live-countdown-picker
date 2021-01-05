@@ -12,14 +12,14 @@ export default function TimeSetter() {
   const { candidates } = useSelector(candidatesSelector);
   const [timerValue, setTimerValue] = useState(0);
 
-  const handleSetTimer = () => {
+  const handleSetTimer = useCallback(() => {
     if (timerValue < 1 || timerValue > 500) return alert('請輸入 1-500 範圍的數字');
     dispatch(setTimer(timerValue * 60));
-  };
+  }, [timerValue, dispatch, setTimer]);
 
   const handleResetTimer = useCallback(() => {
-    dispatch(cleanCandidates());
     dispatch(clearTimer());
+    dispatch(cleanCandidates());
   }, []);
 
   const handleStartTimer = useCallback(() => {
@@ -31,8 +31,8 @@ export default function TimeSetter() {
 
   const handleInstantPick = useCallback(() => {
     dispatch(pickWinner());
-    dispatch(clearTimer());
-  }, []);
+    if (running) dispatch(clearTimer());
+  }, [running]);
 
   return (
     <S.Container>

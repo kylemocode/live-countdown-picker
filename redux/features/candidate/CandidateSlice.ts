@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
 
 import { CandidateState, Candidate } from './types';
 
@@ -20,7 +20,7 @@ const candidateSlice = createSlice({
     },
     pickWinner: (state) => {
       if (state.winner) return;
-      if (state.candidates.length === 0) return alert('沒有抽獎者要怎麼抽獎啦！');
+      if (state.candidates.length === 0) return;
       state.winner = state.candidates[Math.floor(Math.random() * state.candidates.length)];
       state.candidates = [];
     },
@@ -37,5 +37,10 @@ export const { addCandidate, removeCandidate, pickWinner, cleanWinner, cleanCand
 
 export default candidateSlice.reducer;
 
-export const candidatesSelector = (state: { candidates: CandidateState }) =>
+const candidatesSelectorOrigin = (state: { candidates: CandidateState }) =>
   state.candidates;
+
+export const candidatesSelector = createSelector(
+  candidatesSelectorOrigin,
+  candidates => candidates
+)
