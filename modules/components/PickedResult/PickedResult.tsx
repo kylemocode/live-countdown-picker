@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 
 import { S } from './style';
-import { candidatesSelector } from '../../../redux/features/candidate/CandidateSlice';
+import { winnerSelector } from '../../../redux/features/candidate/CandidateSlice';
 
-export default function PickedResult() {
-  const { winner } = useSelector(candidatesSelector);
+function PickedResult() {
+  const winner = useSelector(winnerSelector);
 
   return (
     <S.Container>
@@ -24,7 +24,8 @@ export default function PickedResult() {
           </S.WaitingWrapper>
         </>
       )}
-      
     </S.Container>
   )
 }
+
+export default PickedResult;

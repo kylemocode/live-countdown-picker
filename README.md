@@ -18,7 +18,7 @@ $ npm install && npm run dev (or using yarn instead)
 
 ### High Performance And Good SEO
 ![](https://i.imgur.com/y4YM0KX.png)
-In addition to some performance optimizations unique to react such as useMemo, useCallback...etc, this project also implement virtualized list in CandidatesList component, preventing performance bottleneck while the candidates list is huge.
+In addition to some performance optimizations unique to react such as useMemo, useCallback, React.memo or redux state cache mechanism such as reselect, this project also implement virtualized list in CandidatesList component, preventing performance bottleneck while the candidates list is huge.
 
 Provide basic meta tag to get a good SEO point in lighthouse.
 
@@ -26,7 +26,7 @@ Provide basic meta tag to get a good SEO point in lighthouse.
 Although this is a small project, I still presuppose that it will need to scale in the future, so I manage the code base as maintainable and scalable as I can. For example, I utilize theme provider in styled-components (now only support media query, maybe it can support font color and some design guideline in the future)
 
 ### Use RTK To Avoid Complex Redux Boilerplate
-This project use [Redux-Toolkit](https://github.com/reduxjs/redux-toolkit) to structure redux data architecture, making the code base more readable and maintainable.
+This project use [Redux-Toolkit](https://github.com/reduxjs/redux-toolkit) to structure redux data architecture, not only does it avoid writing lots of redux boilerplate code, it also allow us to safely 'mutate' the state directly (still implement immutable object behind the scene), making the code base more readable and maintainable.
 
 ### Responsive Web Design (RWD)
 Currently, the project only support Desktop version and Tablet version (768px as break point), but I will easily expand the styles of different device sizes in the future.
@@ -40,6 +40,7 @@ Inspired by [this post](https://instagram-engineering.com/making-instagram-com-f
   - [ ] Candidates can upload his/her own avatar
   - [ ] More styles for different device sizes (Now only use 768px as the break point)
   - [ ] Flexible timer (Currently support minute only)
+  - [ ] Use modal to show winner
   - [ ] Persistence feature such as redux-persist or DB storage.
   - [ ] Increase Unit Test Coverage
   - [ ] CICD Pipeline

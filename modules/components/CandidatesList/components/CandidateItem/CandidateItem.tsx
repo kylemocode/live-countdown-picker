@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { S } from './style';
@@ -13,9 +13,9 @@ interface IProps {
 function CandidateItem({ forwardedStyle, name, uniqueKey }: IProps) {
   const dispatch = useDispatch();
 
-  const handleDelete = () => {
+  const handleDelete = useCallback(() => {
     dispatch(removeCandidate(uniqueKey));
-  }
+  }, [uniqueKey, dispatch])
 
   return (
     <S.ListItemContainer style={forwardedStyle}>

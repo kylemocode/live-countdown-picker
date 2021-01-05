@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { S } from './style';
@@ -6,7 +6,7 @@ import { timerSelector, reduceOneSecond, clearTimer } from '../../../../../redux
 import { pickWinner } from '../../../../../redux/features/candidate/CandidateSlice';
 import { calculateTimeLeft } from '../../../../../utils/calculateTimeLeft';
 
-export default function Countdown() {
+function Countdown() {
   const dispatch = useDispatch();
   const { timer, isSetup, running  } = useSelector(timerSelector);
   const [timeleft, setTimeleft] = useState<{ minutes: string, seconds: string }>(calculateTimeLeft(timer * 60));
@@ -44,3 +44,5 @@ export default function Countdown() {
     </S.NumberText>
   )
 }
+
+export default memo(Countdown);

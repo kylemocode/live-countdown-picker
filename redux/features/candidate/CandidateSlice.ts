@@ -37,10 +37,10 @@ export const { addCandidate, removeCandidate, pickWinner, cleanWinner, cleanCand
 
 export default candidateSlice.reducer;
 
-const candidatesSelectorOrigin = (state: { candidates: CandidateState }) =>
+export const candidatesSelector = (state: { candidates: CandidateState }) =>
   state.candidates;
 
-export const candidatesSelector = createSelector(
-  candidatesSelectorOrigin,
-  candidates => candidates
+export const winnerSelector = createSelector(
+  candidatesSelector,
+  candidates => candidates.winner
 )
