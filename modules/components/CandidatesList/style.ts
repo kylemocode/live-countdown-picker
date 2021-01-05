@@ -15,6 +15,7 @@ export const S = {
       width: 100%;
       height: 110vh;
       padding: 20px 20px 0 20px;
+      overflow: hidden;
     `}
   `,
   Title: styled.h3`
