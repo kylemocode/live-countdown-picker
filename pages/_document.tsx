@@ -55,8 +55,6 @@ export default class MyDocument extends Document<DocumentInitialProps> {
           <meta name='apple-mobile-web-app-capable' content='yes' />
           {/* https://github.com/whatwg/html/issues/4504 */}
           <meta name='supported-color-schemes' content='light' />
-
-          <link rel='manifest' href='/_next/static/manifest.json' />
         </Head>
         <body>
           <Main />

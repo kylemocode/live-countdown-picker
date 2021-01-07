@@ -10,7 +10,6 @@ export default function Home() {
       <Head>
         <title>Live Countdown Picker</title>
         <link rel="icon" href="/favicon.ico" />
-        <link rel='preload' href={'/person.jpg'} as='image' />
       </Head>
       <Timer />
       <PickedResult />

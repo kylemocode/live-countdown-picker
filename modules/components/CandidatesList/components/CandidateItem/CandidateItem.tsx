@@ -16,7 +16,7 @@ function CandidateItem({ forwardedStyle, name, uniqueKey }: IProps) {
   const handleDelete = useCallback(() => {
     dispatch(removeCandidate(uniqueKey));
   }, [uniqueKey, dispatch])
-  console.log('item');
+
   return (
     <S.ListItemContainer style={forwardedStyle}>
       <S.StyledImage
