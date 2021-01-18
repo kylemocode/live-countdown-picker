@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchWinners } from '../redux/features/winners/asyncActions';
-import { winnersSelector } from '../redux/features/winners/winnerSlice';
+import { winnersSelector } from '../redux/features/winners/WinnerSlice';
 
 export default function Winner() {
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 
 import candidatesReducer from './features/candidate/CandidateSlice';
 import timerReducer from './features/timer/TimerSlice';
-import winnersReducer from './features/winners/winnerSlice';
+import winnersReducer from './features/winners/WinnerSlice';
 
 const store = configureStore({
   reducer: {
