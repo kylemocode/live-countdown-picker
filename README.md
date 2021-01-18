@@ -1,5 +1,5 @@
 # Live Countdown Picker
-A simple lottery webapp built with Next.js, TypeScript, Redux Toolkit and Styled-Components.
+A simple fullstack lottery webapp built with Next.js, TypeScript, Redux Toolkit , Styled-Components and Prisma with PostgresSQL.
 
 ![image](./assets/live-countdown-picker.gif)
 
