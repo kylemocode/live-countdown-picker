@@ -35,8 +35,8 @@ Currently, the project only support Desktop version and Tablet version (768px as
 Inspired by [this post](https://instagram-engineering.com/making-instagram-com-faster-code-size-and-execution-optimizations-part-4-57668be796a8), this project uses ES2017 as Typescript transpile target, since nearly 56% of user's browser supports ES2017+ syntax. As a result, this shrinks source-mapped bundle size, and gained runtime performance.
 
 ## Roadmap (Todo List)
-  - [ ] Turn this project to Full-Stack project using Next.js API routes, which will turn your API endpoint to serverless lambda function
-  - [ ] Build custom server to set cache header on static assets 
+  - [X] Turn this project to Full-Stack project using Next.js API routes.
+  - [ ] PWA service-worker
   - [ ] Batch insert candidates
   - [ ] Candidates can upload his/her own avatar
   - [ ] More styles for different device sizes (Now only use 768px as the break point)
