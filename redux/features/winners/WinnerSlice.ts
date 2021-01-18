@@ -27,7 +27,7 @@ const winnersSlice = createSlice({
       state.error = true;
     });
     builder.addCase(recordWinners.fulfilled, (state, action) => {
-      state.winners.push(action.payload);
+      state.winners.winners.push(action.payload);
     });
   },
 });
