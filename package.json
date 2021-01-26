@@ -13,6 +13,7 @@
     "axios": "^0.21.1",
     "next": "10.0.4",
     "next-offline": "^5.0.3",
+    "next-pwa": "^5.0.4",
     "next-with-workbox": "^2.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
