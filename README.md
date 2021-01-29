@@ -36,7 +36,7 @@ Inspired by [this post](https://instagram-engineering.com/making-instagram-com-f
 
 ## Roadmap (Todo List)
   - [X] Turn this project to Full-Stack project using Next.js API routes.
-  - [ ] PWA service-worker
+  - [X] PWA service-worker
   - [ ] Batch insert candidates
   - [ ] Candidates can upload his/her own avatar
   - [ ] More styles for different device sizes (Now only use 768px as the break point)
