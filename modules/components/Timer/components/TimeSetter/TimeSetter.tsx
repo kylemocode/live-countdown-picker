@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Link from 'next/link';
 
 import { S } from './style';
 import Countdown from '../Countdown';
@@ -50,6 +51,9 @@ export default function TimeSetter() {
           <S.ResetBtn onClick={handleResetTimer}>重設</S.ResetBtn>
           <S.StartBtn onClick={handleStartTimer}>開始</S.StartBtn>
           <S.InstantBtn onClick={handleInstantPick}>立刻抽獎</S.InstantBtn>
+          <Link href='/winners'>
+            <S.StyledLink>中獎者列表</S.StyledLink>
+          </Link>
         </S.BtnWrapper>
       </S.SetterWrapper>
       <S.CountdownWrapper>

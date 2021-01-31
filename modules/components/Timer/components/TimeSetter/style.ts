@@ -34,6 +34,18 @@ export const S = {
       margin-bottom: 5px;
     `}
   `,
+  StyledLink: styled.div`
+    ${ButtonStyle};
+    width: 150px;
+    background: black;
+    color: white;
+
+    ${props => props.theme.tablet`
+      width: 120px;
+      margin-bottom: 5px;
+      margin-top: 5px;
+    `}
+  `,
   StartBtn: styled.div`
     ${ButtonStyle};
     width: 70px;
