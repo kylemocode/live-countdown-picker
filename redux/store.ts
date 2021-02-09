@@ -4,7 +4,7 @@ import candidatesReducer from './features/candidate/CandidateSlice';
 import timerReducer from './features/timer/TimerSlice';
 import winnersReducer from './features/winners/WinnerSlice';
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     candidates: candidatesReducer,
     timer: timerReducer,

@@ -2,11 +2,14 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import { WinnerAPIResponse, WinnerObj } from './types';
+import { getBaseURL } from '../../../utils/getBaseURL';
+
+const baseURL = getBaseURL({});
 
 export const fetchWinners = createAsyncThunk<WinnerAPIResponse>(
   'winners/fetchWinners',
   async () => {
-    const response = await axios.get('/api/winner/');
+    const response = await axios.get(`${baseURL}api/winner/`);
     return response.data;
   }
 )

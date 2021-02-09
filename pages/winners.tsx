@@ -1,19 +1,16 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import Link from 'next/link';
 
 import { fetchWinners } from '../redux/features/winners/asyncActions';
-import { winnersSelector } from '../redux/features/winners/WinnerSlice';
 import WinnerItem from '../modules/components/WinnerItem';
 import { S } from '../modules/components/WinnerItem/style';
+import { WinnerObj } from '../redux/features/winners/types';
 
-export default function Winner() {
-  const dispatch = useDispatch();
-  const { winners, loading, error } = useSelector(winnersSelector);
-
-  useEffect(() => {
-    dispatch(fetchWinners());
-  },[]);
+interface IProps {
+  winnersProps: WinnerObj[];
+  error: boolean;
+  loading: boolean;
+}
+export default function Winner({ winnersProps, loading, error }: IProps) {
 
   return (
     <div>
@@ -22,14 +19,23 @@ export default function Winner() {
       </Link>
       {loading && <h1>loading...</h1>}
       {error && <h1>error</h1>}
-      {!loading && winners && winners.winners?.map((winner, idx) => {
-        return (
-          <WinnerItem 
-            winnerName={winner.winnerName} 
-            key={`${winner.winnerName}-${idx}`}
-          />
-        )
-      })}
+      <S.ItemContainer>
+        {winnersProps && winnersProps?.map((winner, idx) => {
+          return (
+            <WinnerItem 
+              winnerName={winner.winnerName} 
+              key={`${winner.winnerName}-${idx}`}
+            />
+          )
+        })}
+      </S.ItemContainer>
     </div>
   )
+}
+
+Winner.getInitialProps = async ({ store }) => {
+  await store.dispatch(fetchWinners());
+  const { winners: { winners, loading, error } } = await store.getState();
+
+  return { winnersProps: winners.winners, loading, error };
 }

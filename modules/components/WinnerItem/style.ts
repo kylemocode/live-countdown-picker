@@ -11,6 +11,7 @@ export const S = {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 10px;
   `,
   StyledName: styled.p`
     color: black;
@@ -27,4 +28,9 @@ export const S = {
       margin-top: 5px;
     `}
   `,
+  ItemContainer: styled.div`
+    display: flex;
+    width: 100%;
+    padding: 10px;
+  `
 }
